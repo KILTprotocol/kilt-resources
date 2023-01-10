@@ -1,11 +1,10 @@
-name: Deploy for preview
-
 on:
   workflow_dispatch:
     types: [ created ]
   push:
     branches:
       - main
+name: upload pdf
 
 jobs:
   upload:
