@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: shallwefootball/s3-upload-action@master
         name: Upload to S3
-        id: Upload to S3
+        id: S3
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
