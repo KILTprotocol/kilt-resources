@@ -5,6 +5,7 @@
   <title>Get your DID guide</title>
   <link rel="stylesheet" href="./preconditions.6fc36730.css">
   <meta name="viewport" content="width=device-width, viewport-fit=cover">
+  <script>window.kilt = {};</script>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <a href="https://kilt.io/protocol" class="navLink">Protocol</a>
     <a href="https://kilt.io/services" class="navLink">Services</a>
     <a href="https://kilt.io/about-us" class="navLink">About Us</a>
-    <a class="kiltLink" href="https://kilt.io/build-your-identity">Get your DID</a>
+    <a href="https://kilt.io/build-your-identity" class="kiltLink">Get your DID</a>
   </nav>
 </header>
 
@@ -80,22 +81,31 @@
           <img src="./arrow.605e3822.svg" role="presentation" alt="">
         </a>
       </p>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
 
     <section class="container">
       <p class="step">Step 2</p>
       <h2 class="containerTitle">Download Sporran</h2>
-      <p>Generating a DID requires a Sporran wallet which interacts with the KILT blockchain. Sporran is available as a
-        desktop browser extension on Google Chrome or Mozilla Firefox. Download the wallet for your preferred browser
-        via the links below.</p>
-      <p>
-        <a href="https://chrome.google.com/webstore/detail/djdnajgjcbjhhbdblkegbcgodlkkfhcl" class="imageLink">
-          <img src="./chrome-web-store.edc8dbde.png" width="250" alt="Sporran available in the Chrome Web Store">
+      <p>Generating a DID requires a <a href="https://www.sporran.org/">Sporran wallet</a> which interacts with the KILT blockchain. Sporran is available as a desktop browser extension on Google Chrome or Mozilla Firefox. Download the wallet for your preferred browser via the links below.</p>
+      <p class="extensions">
+        <a href="https://chrome.google.com/webstore/detail/djdnajgjcbjhhbdblkegbcgodlkkfhcl" class="extension">
+          <img src="./chrome.c391a905.svg" width="36" height="36" role="presentation" alt="">
+          <span>Download for</span>
+          <strong>Google Chrome</strong>
         </a>
-        <a href="https://addons.mozilla.org/firefox/addon/sporran/" class="imageLink">
-          <img src="./firefox-web-store.4b0c437f.png" width="250" alt="Sporran available as Firefox Add-On">
+        <a href="https://addons.mozilla.org/firefox/addon/sporran/" class="extension">
+          <img src="./firefox.5234cf86.svg" width="36" height="36" role="presentation" alt="">
+          <span>Download for</span>
+          <strong>Mozilla Firefox</strong>
+        </a>
+        <a href="https://www.sporran.org/" class="imageLink">
+          <img src="./sporran.18aceedd.png" width="90" alt="Sporran logo">
         </a>
       </p>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
 
     <section class="container">
@@ -109,6 +119,8 @@
         <img src="./sporran-password.11018602.png" alt="Sporran screenshot: choose password" width="302">
         <img src="./sporran-created.29b5ce2d.png" alt="Sporran screenshot: identity created" width="302">
       </p>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
 
     <section class="container">
@@ -136,7 +148,7 @@
         <h3>Pay with PayPal</h3>
         <p>If you prefer not to pay with KILT, the Checkout Service provided by KILT partner B.T.E. BOTLabs Trusted
           Entity GmbH manages everything for you. You can use PayPal to pay for this service.</p>
-        <p><strong>Total cost: EUR 4.</strong><br>(or EUR equivalent, depending on your preferred PayPal currency)</p>
+        <p><strong>Total cost: EUR 4.00</strong><br>(or EUR equivalent, depending on your preferred PayPal currency)</p>
         <p>In Sporran, click “Get your DID” then use the Checkout Service and pay with PayPal. Click “CONTINUE” and sign
           with your password to begin the transaction process.</p>
         <p>
@@ -158,6 +170,8 @@
           Privacy Policy
         </a>
       </section>
+
+      <button type="button" class="toggle" aria-label="Toggle section visibility"></button>
     </section>
   </div>
 </main>
@@ -208,6 +222,40 @@ var _mtm = window._mtm = window._mtm || [];
 _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 g.async=true; g.src='https://cdn.matomo.cloud/kilt-protocol.matomo.cloud/container_7liRbL7L.js'; s.parentNode.insertBefore(g,s);
+</script>
+
+<script type="module">
+  (async () => {
+    document.querySelectorAll('.toggle').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.target.closest('.container').classList.toggle('collapsed')
+      })
+    })
+
+    const { userAgent } = navigator
+    const isFirefox = /Firefox/.test(userAgent)
+    const isChrome = navigator.userAgentData?.brands.find(({ brand }) => brand === 'Google Chrome')
+    if (!isFirefox && !isChrome) {
+      return
+    }
+
+    document.querySelector('.container').remove()
+    document.querySelectorAll('.step').forEach((step, index) => {
+      step.textContent = `Step ${index + 1}`
+    })
+
+    while (true) {
+      await new Promise((resolve) => setTimeout(resolve, 100))
+      if (!window.kilt.sporran) {
+        continue
+      }
+      break
+    }
+
+    document.querySelector('.container').remove()
+    document.querySelector('.container').remove()
+    document.querySelector('.step').remove()
+  })()
 </script>
 
 </body>
