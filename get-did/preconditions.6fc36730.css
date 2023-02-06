@@ -274,7 +274,6 @@ body {
 
 .container {
   box-sizing: border-box;
-  width: 120%;
   max-width: 75rem;
   background: rgb(var(--color-primary-rgb) / 10%);
   border: 1px solid rgb(var(--color-primary-rgb) / 50%);
@@ -290,6 +289,12 @@ body {
 @media screen and (max-width: 500px) {
   .container {
     padding: 1rem .75rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 120%;
   }
 }
 
@@ -369,7 +374,15 @@ hr {
 .extensions {
   align-items: flex-start;
   display: flex;
+  gap: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .extensions {
+    flex-direction: column;
+  }
+}
+
 
 .extension {
   height: 3.125rem;
@@ -380,7 +393,6 @@ hr {
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-start;
-  margin-right: 1rem;
   padding-inline: 1rem;
   font-family: Overpass Light, sans-serif;
   font-size: .6875rem;
