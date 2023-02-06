@@ -103,12 +103,6 @@ body {
   top: 0;
 }
 
-@media screen and (max-width: 500px) {
-  .header {
-    height: 2.5rem;
-  }
-}
-
 .header .title {
   margin: 0;
   font-family: Overpass Light, sans-serif;
@@ -169,6 +163,13 @@ body {
     height: 1.25rem;
     width: 2.5rem;
     background-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .header .navLink:not(:first-child),
+  .header .kiltLink {
+    display: none;
   }
 }
 
@@ -420,14 +421,6 @@ hr {
   display: flex;
 }
 
-@media screen and (max-width: 500px) {
-  .footer {
-    flex-direction: column;
-    align-items: center;
-    padding-block: 2rem 1.375rem;
-  }
-}
-
 .footerHeading {
   margin: 0 0 .25rem;
   font-size: 1rem;
@@ -439,9 +432,15 @@ hr {
   display: flex;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
+  .footer {
+    flex-wrap: wrap;
+    padding-block: 2rem 1.375rem;
+  }
+
   .footer .navMenu {
-    align-items: center;
+    width: 50%;
+    align-items: flex-start;
   }
 }
 
@@ -466,11 +465,11 @@ hr {
   font-size: .75rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .footer .copyright {
-    align-self: center;
-    margin-top: 1.25rem;
+    flex-grow: 1;
+    align-self: flex-end;
+    text-align: left;
+    width: 50%;
   }
 }
-
-/*# sourceMappingURL=preconditions.6fc36730.css.map */
