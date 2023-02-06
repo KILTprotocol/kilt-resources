@@ -66,10 +66,11 @@
 
     <section class="container">
       <p class="step">Step 1</p>
-      <h2 class="containerTitle">Use Google Chrome or Mozilla Firefox</h2>
-      <p>Identity on KILT begins with a Sporran wallet. Sporran is available as a desktop browser extension on Google
-        Chrome or Mozilla Firefox. To proceed, switch to one of these browsers.</p>
-      <p>
+      <h2 class="containerTitle">Use Desktop Browser</h2>
+      <p>Identity on KILT begins with a Sporran wallet. Sporran is available only as a desktop browser 
+        extension using Google Chrome or Mozilla Firefox. To proceed, switch to one of these browsers.
+      </p>
+      <p class="browsers">
         <a href="https://www.google.com/chrome/" class="imageLink">
           <img src="./chrome.c391a905.svg" alt="Chrome" width="64" height="64">
           Download
@@ -233,6 +234,15 @@ g.async=true; g.src='https://cdn.matomo.cloud/kilt-protocol.matomo.cloud/contain
     })
 
     const { userAgent } = navigator
+
+    console.log(userAgent , "here bro")
+
+    const isMobile = /Android|iPhone|iPad/.test(userAgent)
+
+    if(isMobile) {
+      document.querySelector('.browsers').remove()  
+    }
+
     const isFirefox = /Firefox/.test(userAgent)
     const isChrome = navigator.userAgentData?.brands.find(({ brand }) => brand === 'Google Chrome')
     if (!isFirefox && !isChrome) {
