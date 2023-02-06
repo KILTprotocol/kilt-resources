@@ -220,6 +220,7 @@ body {
   margin: 0;
   font-family: Overpass Thin, sans-serif;
   font-size: 2.25rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -235,12 +236,18 @@ body {
 }
 
 .infoContainer {
-  margin: 9.25rem 0 0;
+  margin: 2rem 0 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) {
   .infoContainer {
-    margin: 1rem 0 0;
+    margin: 5rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .infoContainer {
+    margin: 9.25rem 0 0;
   }
 }
 
@@ -249,10 +256,22 @@ body {
   font-size: 1rem;
 }
 
+@media screen and (max-width: 700px) {
+  .infoHeading {
+    font-size: 0.75rem;
+  }
+}
+
 .infoTagline {
   margin: 0 0 1rem;
   font-family: Overpass Thin, sans-serif;
   font-size: 3rem;
+}
+
+@media screen and (max-width: 700px) {
+  .infoTagline {
+    font-size: 2.25rem;
+  }
 }
 
 .info {
@@ -270,6 +289,13 @@ body {
 
 .infoPoint {
   line-height: 1.75rem;
+}
+
+@media screen and (max-width: 700px) {
+  .info,
+  .infoPoints {
+    font-size: 1rem;
+  }
 }
 
 .container {
