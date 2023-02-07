@@ -103,12 +103,6 @@ body {
   top: 0;
 }
 
-@media screen and (max-width: 500px) {
-  .header {
-    height: 2.5rem;
-  }
-}
-
 .header .title {
   margin: 0;
   font-family: Overpass Light, sans-serif;
@@ -172,6 +166,13 @@ body {
   }
 }
 
+@media screen and (max-width: 991px) {
+  .header .navLink:not(:first-child),
+  .header .kiltLink {
+    display: none;
+  }
+}
+
 .cover {
   width: 100%;
   padding-inline: calc(50% + min(90%, 69.375rem) / -2);
@@ -219,6 +220,7 @@ body {
   margin: 0;
   font-family: Overpass Thin, sans-serif;
   font-size: 2.25rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -234,12 +236,18 @@ body {
 }
 
 .infoContainer {
-  margin: 9.25rem 0 0;
+  margin: 2rem 0 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) {
   .infoContainer {
-    margin: 1rem 0 0;
+    margin: 5rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .infoContainer {
+    margin: 9.25rem 0 0;
   }
 }
 
@@ -248,10 +256,22 @@ body {
   font-size: 1rem;
 }
 
+@media screen and (max-width: 700px) {
+  .infoHeading {
+    font-size: 0.75rem;
+  }
+}
+
 .infoTagline {
   margin: 0 0 1rem;
   font-family: Overpass Thin, sans-serif;
   font-size: 3rem;
+}
+
+@media screen and (max-width: 700px) {
+  .infoTagline {
+    font-size: 2.25rem;
+  }
 }
 
 .info {
@@ -271,9 +291,15 @@ body {
   line-height: 1.75rem;
 }
 
+@media screen and (max-width: 700px) {
+  .info,
+  .infoPoints {
+    font-size: 1rem;
+  }
+}
+
 .container {
   box-sizing: border-box;
-  width: 120%;
   max-width: 75rem;
   background: rgb(var(--color-primary-rgb) / 10%);
   border: 1px solid rgb(var(--color-primary-rgb) / 50%);
@@ -289,6 +315,12 @@ body {
 @media screen and (max-width: 500px) {
   .container {
     padding: 1rem .75rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 120%;
   }
 }
 
@@ -368,7 +400,15 @@ hr {
 .extensions {
   align-items: flex-start;
   display: flex;
+  gap: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .extensions {
+    flex-direction: column;
+  }
+}
+
 
 .extension {
   height: 3.125rem;
@@ -379,7 +419,6 @@ hr {
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-start;
-  margin-right: 1rem;
   padding-inline: 1rem;
   font-family: Overpass Light, sans-serif;
   font-size: .6875rem;
@@ -420,14 +459,6 @@ hr {
   display: flex;
 }
 
-@media screen and (max-width: 500px) {
-  .footer {
-    flex-direction: column;
-    align-items: center;
-    padding-block: 2rem 1.375rem;
-  }
-}
-
 .footerHeading {
   margin: 0 0 .25rem;
   font-size: 1rem;
@@ -439,9 +470,15 @@ hr {
   display: flex;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
+  .footer {
+    flex-wrap: wrap;
+    padding-block: 2rem 1.375rem;
+  }
+
   .footer .navMenu {
-    align-items: center;
+    width: 50%;
+    align-items: flex-start;
   }
 }
 
@@ -466,11 +503,11 @@ hr {
   font-size: .75rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .footer .copyright {
-    align-self: center;
-    margin-top: 1.25rem;
+    flex-grow: 1;
+    align-self: flex-end;
+    text-align: left;
+    width: 50%;
   }
 }
-
-/*# sourceMappingURL=preconditions.6fc36730.css.map */
