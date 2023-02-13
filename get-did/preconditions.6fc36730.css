@@ -447,6 +447,14 @@ hr {
   transform: rotate(180deg);
 }
 
+.outro {
+  margin: 1.5rem auto 0;
+  padding-left: 3.25rem;
+  font-family: Overpass Light, sans-serif;
+  background: no-repeat left top / 41px;
+}
+
+
 .footer {
   width: 100%;
   box-sizing: border-box;
