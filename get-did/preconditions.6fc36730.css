@@ -179,7 +179,7 @@ body {
   box-sizing: border-box;
   background: url("splash.1fa7c66c.jpg") 0 0 / contain no-repeat;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   padding-top: 9.375rem;
   display: flex;
 }
@@ -202,6 +202,7 @@ body {
   padding-top: 2rem;
   font-family: Overpass Thin, sans-serif;
   font-size: 5.875rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 700px) {
